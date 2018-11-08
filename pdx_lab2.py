@@ -9,7 +9,7 @@ dino = input("What is your favorite type of dinosaur? ")
 flavor = input("What's the weirdest flavor of ice cream you've had? ")
 movement = input("Give a movement verb in the present tense: ")
 quickly = input("What is an antonym of quickly? ")
-thanked = input("What is a synonym of \"thanked\" ")
+thanked = input("What is a synonym of \"thanked\"? ")
 awesome = input("Give a synonym of \"awesome\": ")
 
 
