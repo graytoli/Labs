@@ -3,9 +3,9 @@
 def main():
     cards = {'A': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9, '10': 10, 'J': 10, 'Q': 10, 'K': 10}
     while True:
-        first = cards.get(input('What\'s your first card? ').upper(), 0)
-        second = cards.get(input('What\'s your second card? ').upper(), 0)
-        third = cards.get(input('What\'s your third card? ').upper(), 0)
+        first = cards.get(input('What\'s your first card? ').strip().upper(), 0)
+        second = cards.get(input('What\'s your second card? ').strip().upper(), 0)
+        third = cards.get(input('What\'s your third card? ').strip().upper(), 0)
         if 0 not in [first, second, third]:
             break
         else:
