@@ -9,19 +9,18 @@ def pick6():
 
 def matches(winning, purchased):
     num_matches = 0
-    for num in winning:
-        num_idx = winning.index(num)
-        if purchased[num_idx] == num:
+    for i in range(len(winning)):
+        if winning[i] == purchased[i]:
             num_matches += 1
     return num_matches
 
+winning = pick6()
 number_of_games = 0
 final_balance = 0
 
 while number_of_games < 100000:
     number_of_games +=1
     balance = 0
-    winning = pick6()
     purchased = pick6()
     total_matches = matches(winning, purchased)
     if total_matches == 1:
