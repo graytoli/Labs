@@ -50,5 +50,5 @@ def int_to_english(num_int):
                 print(ones_eng)
 
 
-num_int = input('Enter a number from 0 to 99: ').strip()
+num_int = input('Enter a number from 0 to 999: ').strip()
 int_to_english(num_int)
