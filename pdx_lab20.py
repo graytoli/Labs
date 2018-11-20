@@ -1,4 +1,4 @@
-# Lab 20: Credit Card Validation, version 2
+# Lab 20: Credit Card Validation, version 1
 def validate(credit_card):
     num_list = list(credit_card)
     int_list = []

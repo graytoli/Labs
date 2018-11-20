@@ -1,3 +1,5 @@
+# Lab 13: ROT Cipher, version 1
+
 ENGLISH = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
 ROT_13 =  'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'
 
@@ -12,14 +14,14 @@ def encrypt(string):
     return rotated
 
 def decrypt(string):
-    decrypted = ''
+    decoded = ''
     for i in range(len(string)):
         rot13_index = ROT_13.find(string[i])
         if rot13_index > -1:
-            decrypted += ENGLISH[rot13_index]
+            decoded += ENGLISH[rot13_index]
         else:
-            decrypted += string[i]
-    return decrypted
+            decoded += string[i]
+    return decoded
 
 
 def repl():
