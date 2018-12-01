@@ -13,19 +13,17 @@ stopwords = ['i', 'me', 'my', 'myself', 'we', 'our', 'ours', 'ourselves', 'you',
 def word_count(some_list):
     word_dict = {}
     for item in some_list:
-        find_word = word_dict.get(item)
-        if find_word == None:
-            word_dict[item] = 1
-        else:
-            word_dict[item] += 1
+        if item not in stopwords:
+            find_word = word_dict.get(item)
+            if find_word == None:
+                word_dict[item] = 1
+            else:
+                word_dict[item] += 1
     return word_dict
 
 def top_ten(some_dict):
     counted_list = list(some_dict.items())
     counted_list.sort(key=lambda tup: tup[1], reverse=True)
-    for tup in counted_list:
-        if tup[0] in stopwords:
-            counted_list.remove(tup)
     for i in range(min(10, len(counted_list))):
         print(counted_list[i])
 

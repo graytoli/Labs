@@ -25,11 +25,6 @@ with open('ume_san.txt') as file:
 translator = str.maketrans('', '', string.punctuation)
 word_list = text.translate(translator).split()
 
-# def avg_word_length(some_list):
-#     num_char = []
-#     for item in some_list:
-#         num_char.append(len(item))
-#     return sum(num_char) / len(num_char)
 def num_char(text):
     """ Calculates the number of characters in string or text, exlcuding all non-alphanumeric characters and spaces
     """
