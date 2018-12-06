@@ -157,3 +157,16 @@ print(minimum(num_list))
 print(maximum(num_list))
 print(mean(num_list))
 print(mode(num_list))
+
+
+# Comprehensions: Problem 1
+powers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+def powers_of_two(n_list):
+    powers = range(n_list)
+    return [2**power for power in powers]
+
+# Comprehensions: Problem 2
+def evens(num_list):
+    return [num for num in num_list if num % 2 == 0]
+
+print(evens(range(1, 21)))
