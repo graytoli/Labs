@@ -170,3 +170,21 @@ def evens(num_list):
     return [num for num in num_list if num % 2 == 0]
 
 print(evens(range(1, 21)))
+
+# Comprehensions: Problem 3
+def swap(some_dict):
+    return {v:k for k,v in dictionary.items()}
+
+# Recursions: Problem 1
+def recursive_summation(n):
+    """
+    returns sum of all the numbers up to n
+    for instance, if n = 4, recursive_summation(4) = 10 = (4 + 3 + 2 + 1)
+    >>> recursive_summation(5)
+    15
+    """
+    if n == 0:
+        return 0
+    return n + recursive_summation(n-1)
+
+print(recursive_summation(1))

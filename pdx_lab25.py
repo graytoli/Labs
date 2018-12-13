@@ -18,7 +18,7 @@ class ATM:
         return False
 
     def withdraw(self, amount):
-        if self.check_withdrawal(amount) == True:
+        if self.check_withdrawal(amount):
             self.balance -= amount
             return self.balance
         return 'Insufficient funds. Transaction could not be completed.'
@@ -35,7 +35,7 @@ if __name__ == '__main__':
     new_account = ATM()
     trans_history = []
     while True:
-        account_activity = input('Would you like to make a (d)eposit, make a (w)ithdrawal, (c)heck balance, or view transaction (h)istory?\nOtherwise, e(x)it.\n').strip().lower()
+        account_activity = input('Would you like to make a (d)eposit, make a (w)ithdrawal, (c)heck balance, calculate (i)nterest, or view transaction (h)istory?\nOtherwise, e(x)it.\n').strip().lower()
 
         if account_activity in ['x', 'exit', 'q', 'quit']:
             break
@@ -53,5 +53,7 @@ if __name__ == '__main__':
                 trans_history.append(f'User withdrew {withdrawal_amt}.')
         if account_activity.startswith('c'):
             print(f'Your current balance: ${new_account.check_balance()}')
+        if account_activity.startswith('i'):
+            print(new_account.calc_interest())
         if account_activity.startswith('h'):
             new_account.print_transactions(trans_history)
