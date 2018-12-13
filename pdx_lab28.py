@@ -57,16 +57,15 @@ class Board:
 
         return None
 
-
     def is_full(self):
-        for i in range(10):
+        for i in range(9):
             if self.board[i] not in ['X', 'O']:
                 return False
         return True
 
     def is_game_over(self):
         if self.calc_winner() or self.is_full():
-            return True
+            return 'Game over.'
         return False
 
 
@@ -87,62 +86,54 @@ if __name__ == '__main__':
                 player_two = Player(player2_name, player2_tok)
                 print(f'{player1_name} is {player1_tok}.\n{player2_name} is {player2_tok}.')
                 print('X makes the first move.')
-
-                while True:
-                    print(board)
-
-                    if player1_tok == 'X':
-                        while True:
-                            position = int(input(f'{player1_name}:\nEnter a position on the board to play: '))
-                            current_move = board.move(position, player1_tok)
-                            if current_move:
-                                print(current_move)
-                            else:
-                                break
-
-                        while True:
-                            position = int(input(f'{player2_name}:\nEnter a position on the board to play: '))
-                            current_move = board.move(position, player2_tok)
-                            if current_move:
-                                print(current_move)
-                            else:
-                                break
-
-                    if player2_tok == 'X':
-                        while True:
-                            position = int(input(f'{player2_name}:\nEnter a position on the board to play: '))
-                            current_move = board.move(position, player2_tok)
-                            if current_move:
-                                print(current_move)
-                            else:
-                                break
-
-                        while True:
-                            position = int(input(f'{player1_name}:\nEnter a position on the board to play: '))
-                            current_move = board.move(position, player1_tok)
-                            if current_move:
-                                print(current_move)
-                            else:
-                                break
-
-                    winner = board.calc_winner()
-                    if winner:
-                        print(f'{winner} wins!')
-                        print(board)
-
-                    if board.is_full():
-                        print('Cannot make any more moves. The board is full.')
-                        print(board)
-
-                    if board.is_game_over():
-                        print('Game over.')
-                        break
-
+                break
             else:
                 print(f'Invalid input. {player1_name}, please, choose X or O.')
 
-            if player1_tok in ['X', 'O']:
-                break
+        players = [player_one] + [player_two]
+        for player in players:
+            if player.token == 'X':
+                even_player = player.name
+                x_token = player.token
+            if player.token == 'O':
+                odd_player = player.name
+                o_token = player.token
+
+        round_counter = 0
+        while not board.is_game_over():
+            if round_counter % 2 == 0:
+                current_player = even_player
+                current_token = x_token
+            else:
+                current_player = odd_player
+                current_token = o_token
+            while True:
+                print(board)
+                while True:
+                    try:
+                        position = int(input(f'{current_player}:\nEnter a position on the board to play: '))
+                        if position not in range(1, 10):
+                            raise ValueError
+                        break
+                    except ValueError:
+                        print('Invalid input. Enter a number 1 through 9.')
+
+                current_move = board.move(position, current_token)
+                if current_move:
+                    print(current_move)
+                else:
+                    break
+            round_counter += 1
+
+        print(board)
+        winner = board.calc_winner()
+        if winner:
+            print(f'{winner} wins!')
+            print(board)
+        else:
+            print('Cannot make any more moves. The board is full.')
+            print(board)
+        print(board.is_game_over())
 
         play_again = input('Play again? ').strip().lower()
         if play_again.startswith('n'):
