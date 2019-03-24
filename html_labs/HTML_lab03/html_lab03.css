@@ -1,0 +1,50 @@
+/* Lab 3: Company Home */
+body {
+    font-family: "Avenir";
+    color:#3f3844;
+}
+
+h1, h2, h3 {
+    font-family: "Didot";
+}
+
+.image-text {
+    position: relative;
+}
+
+#serra, #intro {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#serra-hidden {
+    visibility: hidden;
+}
+
+#intro {
+    color: #FCFAFA;
+    margin: auto;
+}
+
+.image-on-left {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-gap: 2em;
+    padding-top: 5em;
+    padding-left: 3em;
+    padding-bottom: 5em;
+}
+
+.image-on-right {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+
+.left-text {
+    margin: auto;
+}
+
+.right-text{
+    margin: auto;
+}

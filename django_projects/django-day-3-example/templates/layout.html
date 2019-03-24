@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}Posts{% endblock title %}</title>
+    <style>
+        .post {
+            margin-bottom: 2em;
+        }
+        .title {
+            font-weight: bold;
+            margin-bottom: 1rem;
+            font-size: 18px;
+        }
+        .body {
+            padding: 1rem;
+        }
+        .comment {
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+    {% block content %}
+    {% endblock content %}
+</body>
+</html>
